@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   get '/wp_posts/:id/edit', to: 'wp_posts#edit'
   resources :wp_posts
 
-  root to: 'wp_postmetas#wp_postmetas'
   get '/wp_postmetas', to: 'wp_postmetas#wp_postmetas'
   get '/wp_postmetas/new', to: 'wp_postmetas#new'
   get '/wp_postmetas/:id', to: 'wp_postmetas#show'
