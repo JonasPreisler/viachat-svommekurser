@@ -30,6 +30,7 @@
         </li>
         <% else %>
         <li><%= link_to 'Posts', wp_posts_path, class: 'btn-primary shadow'%></li>
+        <li><%= link_to 'Brukere', wp_users_path, class: 'btn-primary shadow'%></li>
         <li><%= link_to 'Logg inn', new_user_session_path, class: 'btn-primary shadow'%></li>
         <% end %>
 

@@ -1,0 +1,47 @@
+<script>
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script>
+
+
+<br />
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <h1>Kurs</h1>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <%= link_to 'Ny bruker', new_wp_user_path, class: 'btn-primary2 shadow pull-right' %>
+    </div>
+  </div>
+
+<br />
+
+<table class="table table-hover">
+	<thead>
+	  <tr>
+	    <th>ID</th>
+	    <th>Image</th>
+	    <th>Title</th>
+	    <th>Content</th>
+	    <th>Edit</th>
+	    <th>Delete</th>
+	    <th colspan="3"></th>
+	  </tr>
+	</thead>
+
+	<tbody>
+	  <% @wp_users.each do |user| %>
+		    <tr class="clickable-row" style="cursor: pointer;" data-href='http://localhost:3000/wp_users/<%= user.id %>'>
+		      <td><%= user.id %></td>
+		      <td><%= image_tag '/jonas.jpg' %></td>
+		      <td><%= link_to user.user_nicename, user %></td>
+		      <td><%= user.display_name %></td>
+		      <td><%= link_to 'Rediger', edit_wp_user_path(user)  %></td>
+		      <td><%= link_to 'Slett', user, method: :delete, data: { confirm: 'Er du sikker?' } %></td>
+		    </tr>
+	  <% end %>
+	</tbody>
+</table>

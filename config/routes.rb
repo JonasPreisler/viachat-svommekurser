@@ -35,6 +35,13 @@ Rails.application.routes.draw do
   get '/wp_posts/:id/edit', to: 'wp_posts#edit'
   resources :wp_posts
 
+root to: 'wp_users#wp_users'
+  get '/wp_users', to: 'wp_users#wp_users'
+  get '/wp_users/new', to: 'wp_users#new'
+  get '/wp_users/:id', to: 'wp_users#show'
+  get '/wp_users/:id/edit', to: 'wp_users#edit'
+  resources :wp_users
+
   get '/wp_postmetas', to: 'wp_postmetas#wp_postmetas'
   get '/wp_postmetas/new', to: 'wp_postmetas#new'
   get '/wp_postmetas/:id', to: 'wp_postmetas#show'
