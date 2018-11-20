@@ -6,9 +6,9 @@ jQuery(document).ready(function($) {
 });
 </script>
 
-<%#= @wp_usermetas.meta_value %>
-<%#= @wp_usermetas.meta_key %>
-<%= @wp_options.wp_user_roles %>
+<% @wp_usermetas.each do |usermeta| %>
+<%= usermeta.meta_value %>
+<% end %>
 
 <br />
   <div class="row">

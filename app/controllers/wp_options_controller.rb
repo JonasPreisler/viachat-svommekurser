@@ -1,9 +1,8 @@
-class WpUsersController < ApplicationController
-  before_action :set_wp_user, only: [:wp_user, :show, :edit, :update, :destroy]
+class WpOptionsController < ApplicationController
+  before_action :set_wp_options, only: [:wp_user, :show, :edit, :update, :destroy]
 
   def wp_users
     @wp_usermetas = WpUsermeta.first
-    @wp_option = WpOptions.first
     @wp_users = WpUser.all
   end
 
@@ -60,8 +59,8 @@ class WpUsersController < ApplicationController
 	
 	private
 
-  def set_wp_user
-    @wp_user = WpUser.find(params[:id])
+  def set_wp_options
+    @wp_options = WpOptions.find(params[:id])
   end
 
 

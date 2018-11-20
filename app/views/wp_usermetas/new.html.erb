@@ -1,0 +1,29 @@
+<%= simple_form_for(@wp_post) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+
+
+    <%= f.input :post_title %>
+    <%= f.input :post_content %>
+    <%= f.hidden_field :post_date, :value=>Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
+    <%= f.hidden_field :post_date_gmt, :value=>Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
+    <%= f.hidden_field :post_modified, :value=>Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
+    <%= f.hidden_field :post_modified_gmt, :value=>Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
+    <%= f.hidden_field :post_type, :value=>"post" %>
+    <%= f.hidden_field :post_status, :value=>"publish" %>
+    <%= f.hidden_field :post_author, :value=>"1" %>
+    <%= f.hidden_field :post_excerpt, :value=>"" %>
+    <%= f.hidden_field :comment_status, :value=>"open" %>
+    <%= f.hidden_field :ping_status, :value=>"open" %>
+    <%= f.hidden_field :to_ping, :value=>"" %>
+    <%= f.hidden_field :pinged, :value=>"" %>
+    <%= f.hidden_field :post_content_filtered, :value=>"" %>
+    <%= f.hidden_field :menu_order, :value=>"0" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
